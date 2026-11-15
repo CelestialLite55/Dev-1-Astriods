@@ -13,7 +13,9 @@ public class SpaceShip : MonoBehaviour
     private Rigidbody2D myR82d;
 
     public ScreenFlash Flash;
-    public Screenshake Shake; 
+    public Screenshake Shake;
+    public int Score = 0;
+    
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -64,5 +66,22 @@ public class SpaceShip : MonoBehaviour
         Shake.ShakeScreen();
     }
 
-    
+    public int GetHighScore()
+    {
+        return PlayerPrefs.GetInt("Hiscore", 0);
+    }
+
+    public void SetHighScore(int score)
+    {
+        PlayerPrefs.SetInt("Hisscore", score);
+    }
+
+    public void GameOver()
+    {
+        if (Score > GetHighScore())
+        {
+            SetHighScore(Score);
+        }
+    }
+
 }

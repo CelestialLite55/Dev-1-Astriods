@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Rock : MonoBehaviour
 {
@@ -9,7 +10,25 @@ public class Rock : MonoBehaviour
     [SerializeField] private float _speed;
 
     [SerializeField] private IntChannel _addScoreChannel;
+
+    public int ScoreValue = 10;
+
    
+    public void Explode()
+    {
+        SpaceShip ship = FindFirstObjectByType<SpaceShip>();
+        if (ship != null)
+        {
+            {
+                ship.Score += ScoreValue;
+            }
+            if (ship.Score >= 10)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("Rock"))
@@ -50,6 +69,8 @@ public class Rock : MonoBehaviour
             rb.AddForce(randomVector * _smallRockSpeed, ForceMode2D.Impulse);
         }
     }
+
+   
    // private void OnEnable()
    // {
    //     StartCoroutine(DestroyAfterTime());
