@@ -21,12 +21,15 @@ public class GameOverUI : MonoBehaviour
     void Start()
     {
         ship = FindFirstObjectByType<SpaceShip>();
-        //HideFlags();
+        gameObject.SetActive(false);
+        //Hide();
     }
 
     public void Show(bool celebrateHIScore)
     {
         ScorePanel.SetActive(true);
+        Celebrate.SetActive(celebrateHIScore);
+        HiScoreTextBox.enabled = true; 
     }
 
     public void Hide()
@@ -34,9 +37,14 @@ public class GameOverUI : MonoBehaviour
         ScorePanel.SetActive(false);
     }
 
+
     // Update is called once per frame
     void Update()
     {
-        
+        if (ship != null)
+        {
+            ScoreTextBox.text = ship.Score.ToString();
+            HiScoreTextBox.text = ship.GetHighScore().ToString();
+        }
     }
 }

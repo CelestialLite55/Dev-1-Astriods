@@ -56,7 +56,7 @@ public class Rock : MonoBehaviour
 
             Vector2 randomOffset = new Vector2(randomXPos, randomYPos);
 
-            Rigidbody2D rb = Instantiate(_smallerRocks[UnityEngine.Random.Range(0, _smallerRocks.Length)], 
+            Rigidbody2D rb = Instantiate(_smallerRocks[UnityEngine.Random.Range(0, _smallerRocks.Length)],
                transform.position, Quaternion.identity).GetComponent<Rigidbody2D>();
 
             float randomX = UnityEngine.Random.Range(-1f, 1f);
@@ -68,16 +68,18 @@ public class Rock : MonoBehaviour
 
             rb.AddForce(randomVector * _smallRockSpeed, ForceMode2D.Impulse);
         }
+
+        Explode();
     }
 
-   
-   // private void OnEnable()
-   // {
-   //     StartCoroutine(DestroyAfterTime());
-   // }
-   // private IEnumerator DestroyAfterTime()
-   // {
-   //     yield return new WaitForSeconds(5f);
-   //     Destroy(gameObject);
-   // }
+
+    // private void OnEnable()
+    // {
+    //     StartCoroutine(DestroyAfterTime());
+    // }
+    // private IEnumerator DestroyAfterTime()
+    // {
+    //     yield return new WaitForSeconds(5f);
+    //     Destroy(gameObject);
+    // }
 }

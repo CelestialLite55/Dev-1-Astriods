@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpaceShip : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class SpaceShip : MonoBehaviour
     public Screenshake Shake;
     public int Score = 0;
     
+    public GameOverUI GameOverUI;
+    public GameObject ScorePanel, Celebrate;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -64,6 +67,14 @@ public class SpaceShip : MonoBehaviour
         _health--;
         StartCoroutine(Flash.FlashRoutine());
         Shake.ShakeScreen();
+
+        if(_health <= 0)
+        {
+            GameOver();
+            gameObject.SetActive(false);
+            //Destroy(gameObject); 
+            //SceneManager.LoadScene("GameOver");
+        }
     }
 
     public int GetHighScore()
@@ -73,7 +84,7 @@ public class SpaceShip : MonoBehaviour
 
     public void SetHighScore(int score)
     {
-        PlayerPrefs.SetInt("Hisscore", score);
+        PlayerPrefs.SetInt("Hiscore", score);
     }
 
     public void GameOver()
@@ -81,7 +92,9 @@ public class SpaceShip : MonoBehaviour
         if (Score > GetHighScore())
         {
             SetHighScore(Score);
+            GameOverUI.Show(true);
         }
+        else GameOverUI.Show(false);
     }
 
 }

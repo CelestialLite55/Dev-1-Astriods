@@ -432,6 +432,7 @@ GameObject:
   - component: {fileID: 286243488}
   - component: {fileID: 286243490}
   - component: {fileID: 286243489}
+  - component: {fileID: 286243491}
   m_Layer: 5
   m_Name: Text (Score)
   m_TagString: Untagged
@@ -557,6 +558,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 286243487}
   m_CullTransparentMesh: 1
+--- !u!114 &286243491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286243487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e9bca43197c4d74e954dd18f0b03e1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScoreTextBox: {fileID: 286243489}
+  HiScoreTextBox: {fileID: 1234013370}
+  ScorePanel: {fileID: 1662538517}
+  Celebrate: {fileID: 0}
 --- !u!1 &359208414
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,8 +600,8 @@ Transform:
   m_GameObject: {fileID: 359208414}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -401.98666, y: -200.07668, z: 0}
-  m_LocalScale: {x: 12.330098, y: 4.43327, z: 1}
+  m_LocalPosition: {x: -3, y: -15, z: 0}
+  m_LocalScale: {x: 536.57587, y: 169.33948, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1662538522}
@@ -1203,7 +1220,7 @@ GameObject:
   - component: {fileID: 1532309181}
   - component: {fileID: 1532309180}
   m_Layer: 5
-  m_Name: Button (Main Menu)
+  m_Name: Main Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1288,7 +1305,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1532309182}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1532309180}
+        m_TargetAssemblyTypeName: GameOverUI, Assembly-CSharp
+        m_MethodName: ClickMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1532309182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1603,7 +1632,7 @@ GameObject:
   - component: {fileID: 1913653458}
   - component: {fileID: 1913653457}
   m_Layer: 5
-  m_Name: Button (Play Again)
+  m_Name: Play Again
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1688,7 +1717,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1913653459}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1913653457}
+        m_TargetAssemblyTypeName: GameOverUI, Assembly-CSharp
+        m_MethodName: ClickPlayAgain
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1913653459
 MonoBehaviour:
   m_ObjectHideFlags: 0
